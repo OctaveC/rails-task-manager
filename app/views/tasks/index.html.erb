@@ -1,0 +1,19 @@
+<h1>Your Tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <%if task.completed %>
+        <%= image_tag "done.png", alt: "done", width: 16 %>
+      <% else %>
+        <%= image_tag "checkbox.png", alt: "todo", width: 16 %>
+      <% end %>
+     <%= link_to task.title, task_path(task.id) %></li>
+    <%= link_to "Delete #{task.title}",
+            task_path(task.id),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+
+  <% end %>
+</ul>
+<%= link_to 'Add a new task', tasks_new_path %>
