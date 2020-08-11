@@ -8,11 +8,11 @@
       <% else %>
         <%= image_tag "checkbox.png", alt: "todo", width: 16 %>
       <% end %>
-     <%= link_to task.title, task_path(task.id) %></li>
-    <%= link_to "Delete #{task.title}",
+     <%= link_to task.title, task_path(task.id) %>
+     <%= link_to "🗑️",
             task_path(task.id),
             method: :delete,
-            data: { confirm: "Are you sure?" } %>
+            data: { confirm: "Are you sure?" } %></li>
 
   <% end %>
 </ul>
